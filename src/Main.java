@@ -26,7 +26,6 @@ public class Main {
         
         
         control.iniciar();
-        vista1.setVisible(true);
         /*
             Menu.iniciarMenu(input,seleccion,Archivos,repositorio);
         */
