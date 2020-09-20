@@ -22,7 +22,7 @@ public class Main {
 	LinkedList<Archivo> Archivos = new LinkedList<Archivo>();
 	Repository repositorio = new Repository() {};
 	InfoRepositorio vista1 = new InfoRepositorio();
-	Controlador control = new Controlador(vista1,repositorio);
+	Controlador control = new Controlador(vista1,repositorio,Archivos);
         
         
         control.iniciar();
