@@ -6,6 +6,9 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="e6" green="c9" red="c8" type="rgb"/>
     </Property>
+    <Property name="iconImage" type="java.awt.Image" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+      <Connection code="new javax.swing.ImageIcon(getClass().getResource(&quot;/vista/gato_Git250.png&quot;)).getImage()" type="code"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -38,11 +41,11 @@
                       <Component id="BotonCommit" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="BotonPush" pref="122" max="32767" attributes="0"/>
+                      <Component id="BotonPush" pref="124" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="BotonPull" pref="122" max="32767" attributes="0"/>
+                      <Component id="BotonPull" pref="124" max="32767" attributes="0"/>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                      <Component id="BotonStatus" pref="122" max="32767" attributes="0"/>
+                      <Component id="BotonStatus" pref="124" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -59,7 +62,7 @@
                   <Component id="BotonAdd" max="32767" attributes="0"/>
                   <Component id="BotonCommit" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="BotonPush" max="32767" attributes="0"/>
                   <Component id="BotonPull" max="32767" attributes="0"/>
@@ -88,21 +91,16 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                  <Component id="jPanel1" min="-2" pref="138" max="-2" attributes="0"/>
+                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel3" pref="28" max="32767" attributes="0"/>
+                  <Component id="jLabel3" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jPanel1" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
               <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
+              <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -123,30 +121,50 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jLabel4" min="-2" pref="134" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
                   <Component id="autor" alignment="0" max="32767" attributes="0"/>
                   <Component id="nombreRep" alignment="1" max="32767" attributes="0"/>
                   <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
                   <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jLabel4" min="-2" pref="134" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="StatusWorkspace" alignment="0" pref="187" max="32767" attributes="0"/>
+                          <Component id="StatusRemote" pref="187" max="32767" attributes="0"/>
+                          <Component id="StatusIndex" alignment="0" pref="187" max="32767" attributes="0"/>
+                          <Component id="StatusLocal" alignment="0" pref="187" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="jLabel5" alignment="1" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="autor" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="nombreRep" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Component id="StatusWorkspace" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Component id="StatusIndex" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Component id="StatusLocal" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Component id="StatusRemote" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -206,6 +224,103 @@
                   <Image iconType="3" name="/vista/gato_GIT.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Git"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="StatusWorkspace">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/vista/Workspace.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Workpsace"/>
+                <Property name="contentAreaFilled" type="boolean" value="false"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Cursor de Mano"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="2"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="StatusWorkspaceActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="StatusRemote">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/vista/RemoteRep50x50.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Remote Repository"/>
+                <Property name="contentAreaFilled" type="boolean" value="false"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Cursor de Mano"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="2"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="StatusRemoteActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="StatusIndex">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/vista/Index.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Index"/>
+                <Property name="contentAreaFilled" type="boolean" value="false"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Cursor de Mano"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="2"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="StatusIndexActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="StatusLocal">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/vista/LocalRep.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Local Repository"/>
+                <Property name="contentAreaFilled" type="boolean" value="false"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Cursor de Mano"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="2"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="StatusLocalActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel5">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="Status:"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -279,6 +394,9 @@
         <Property name="horizontalTextPosition" type="int" value="0"/>
         <Property name="verticalTextPosition" type="int" value="3"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonStatusActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>

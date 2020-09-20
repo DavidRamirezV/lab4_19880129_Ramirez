@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-import javax.swing.Icon;
 import javax.swing.JOptionPane;
 import modelo.*;
 import vista.*;
@@ -26,6 +25,7 @@ public class Controlador implements ActionListener{
     private CrearArchivo vista3;
     private Repository repositorio;
     private LinkedList<Archivo> Archivos;
+    private StatusWorkspace status1;
 
 
     /**
@@ -50,15 +50,15 @@ public class Controlador implements ActionListener{
     public void iniciar(){
         vista.setTitle("Simulacion de Git por David Ramirez");
         vista.setLocationRelativeTo(null);
-        vista.BotonIniciar.addActionListener(this);      
+        vista.BotonIniciar.addActionListener(this);        
         vista.setVisible(true);
     } 
     public void iniciarMenu(){
         vista2 = new Menu();
         vista2.setTitle("Simulacion de Git por David Ramirez");
         vista2.setLocation(vista.getLocation());
-        vista2.setVisible(true);
-        vista2.setSize(vista.getSize());
+        vista2.setVisible(true);        
+        vista.setSize(655, 500);
         vista2.jPanel1.setVisible(false);
         vista2.autor.setText(vista.TxtAutor.getText());
         vista2.nombreRep.setText(vista.TxtNombreRep.getText());
@@ -68,6 +68,7 @@ public class Controlador implements ActionListener{
         vista2.BotonPush.addActionListener(this);
         vista2.BotonPull.addActionListener(this);
         vista2.BotonStatus.addActionListener(this);
+        vista2.StatusWorkspace.addActionListener(this);
         vista.setVisible(false);
     } 
     public void crearArchivo(String nombre){
@@ -89,7 +90,7 @@ public class Controlador implements ActionListener{
         }
         //MENU
         if (e.getSource()==vista2.BotonArchivo){          
-            String nombre = (String) JOptionPane.showInputDialog(null, "Ingresa el nombre del archivo","Crear Archivo", -1, (Icon) vista2.getIconImage(), null, "ejemplo.txt");          
+            String nombre = (String) JOptionPane.showInputDialog(null, "Ingresa el nombre del archivo","Crear Archivo", -1,null, null, "ejemplo.txt");          
             crearArchivo(nombre);           
             
         }
@@ -103,7 +104,7 @@ public class Controlador implements ActionListener{
 
         if (e.getSource()==vista2.BotonAdd){           
             try{
-                String archivosAgregar = (String) JOptionPane.showInputDialog(null, "Escribe all para agregar todo o ingresa los nombres de los archivos separados por comas","¿Que Quieres Agregar?", -1, (Icon) vista2.getIconImage(), null, "all");          
+                String archivosAgregar = (String) JOptionPane.showInputDialog(null, "Escribe all para agregar todo o ingresa los nombres de los archivos separados por comas","¿Que Quieres Agregar?", -1, null, null, "all");          
                 List<String> nombresArchivos = new ArrayList<String>(Arrays.asList(archivosAgregar.split(",")));
                 repositorio.setIndex(Workspace.gitAdd(nombresArchivos, repositorio.getWorkspace()) );
                  JOptionPane.showMessageDialog(null, "Has realizado un Git Add correctamente", "Git Add", -1);                   
@@ -115,7 +116,7 @@ public class Controlador implements ActionListener{
         
         if (e.getSource()==vista2.BotonCommit){           
             try {
-                String mensaje = (String) JOptionPane.showInputDialog(null, "Ingresa un mensaje descirptivo para el Commit","Git Commit", -1, (Icon) vista2.getIconImage(), null, "mensaje");          
+                String mensaje = (String) JOptionPane.showInputDialog(null, "Ingresa un mensaje descirptivo para el Commit","Git Commit", -1, null, null, "mensaje");          
                 repositorio.setLocalRepository(Index.gitCommit(mensaje,repositorio));
                 repositorio.setIndex(null);
                  JOptionPane.showMessageDialog(null, "Has realizado un Git Commit correctamente", "Git Commit", -1);                   
@@ -147,9 +148,31 @@ public class Controlador implements ActionListener{
         }
         
         if (e.getSource()==vista2.BotonStatus){    
+                     
             
+        }
+        if (e.getSource()==vista2.StatusWorkspace){    
+            status1 = new StatusWorkspace();
+            status1.setTitle("Simulacion de Git por David Ramirez");
+            status1.setLocation(vista.getLocation());
+            if (Archivos.size()>0){
+                for (int i=0;Archivos.size()>i;i++){
+                   status1.modelo.addElement(Archivos.get(i).getNombre());                   
+                   status1.ListaArchivos.setSelectedIndex(0);
+                }
+            }
+            status1.setVisible(true);
             
-            
+        }
+        
+        if (e.getSource()==status1.ListaArchivos){
+            String seleccionado = status1.ListaArchivos.getSelectedValue();
+            for (int i=0;Archivos.size()>i;i++){
+                if (Archivos.get(i).getNombre().equals(seleccionado)){
+                    status1.Contenido.setText(Archivos.get(i).getContenido());
+                    break;
+                }
+            }
         }
         
     }

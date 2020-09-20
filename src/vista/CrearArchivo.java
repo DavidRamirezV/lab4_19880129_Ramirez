@@ -37,7 +37,8 @@ public class CrearArchivo extends javax.swing.JFrame {
         nombreArchivo = new javax.swing.JLabel();
         TextoPromedio = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/vista/gato_Git250.png")).getImage());
 
         contenido.setColumns(20);
         contenido.setRows(5);
