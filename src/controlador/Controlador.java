@@ -10,7 +10,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import modelo.*;
 import vista.*;
 
@@ -161,21 +164,33 @@ public class Controlador implements ActionListener{
                    status1.ListaArchivos.setSelectedIndex(0);
                 }
             }
+            status1.ListaArchivos.addListSelectionListener(new ListSelectionListener() {
+            @Override
+                public void valueChanged(ListSelectionEvent e) {
+                    status1.Contenido.setVisible(false);
+                    String seleccionado = status1.ListaArchivos.getSelectedValue();
+                    for (int i=0;Archivos.size()>i;i++){
+                        if (Archivos.get(i).getNombre().equals(seleccionado)){
+                            status1.Contenido.setText(Archivos.get(i).getContenido());
+                            status1.Contenido.setVisible(true);
+                            break;
+                        }
+                    }
+                   
+                }
+
+                private void add(JLabel Contenido) {
+                    
+                }
+            });
             status1.setVisible(true);
             
-        }
+        }    
+     
+       
+            
         
-        if (e.getSource()==status1.ListaArchivos){
-            String seleccionado = status1.ListaArchivos.getSelectedValue();
-            for (int i=0;Archivos.size()>i;i++){
-                if (Archivos.get(i).getNombre().equals(seleccionado)){
-                    status1.Contenido.setText(Archivos.get(i).getContenido());
-                    break;
-                }
-            }
-        }
-        
+
     }
-    
     
 }
