@@ -54,7 +54,7 @@ public class Commit {
 	
 	/**
 	 * Constructor de la clase Commit.
-	 * @param comentario - String que representa un pequeño mensaje del usuario
+	 * @param comentario - String que representa un pequeno mensaje del usuario
 	 * @param archivosEditados - Lista enlazada de Archivos con archivos que fueron editados
 	 * @param archivosCommit - Lista enlazada de Archivos con todos los archivos actuales
 	 */

@@ -90,7 +90,7 @@ public class Menu extends javax.swing.JFrame {
 
         StatusWorkspace.setForeground(new java.awt.Color(255, 255, 255));
         StatusWorkspace.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/Workspace.png"))); // NOI18N
-        StatusWorkspace.setText("Workpsace");
+        StatusWorkspace.setText("Workspace");
         StatusWorkspace.setContentAreaFilled(false);
         StatusWorkspace.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         StatusWorkspace.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -188,7 +188,7 @@ public class Menu extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("▶");
+        jLabel3.setText(">");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -321,11 +321,11 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (jPanel1.isVisible()){            
             jPanel1.setVisible(false);
-            jLabel3.setText("▶");
+            jLabel3.setText(">");
         }
         else {
             jPanel1.setVisible(true);
-            jLabel3.setText("◀");
+            jLabel3.setText("<");
         }
     }//GEN-LAST:event_jPanel2MouseClicked
 
@@ -361,11 +361,11 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (jPanel1.isVisible()){            
             jPanel1.setVisible(false);
-            jLabel3.setText("▶");
+            jLabel3.setText(">");
         }
         else {
             jPanel1.setVisible(true);
-            jLabel3.setText("◀");
+            jLabel3.setText("<");
         }
     }//GEN-LAST:event_BotonStatusActionPerformed
 

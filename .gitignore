@@ -1,4 +1,5 @@
 *.class
+*.form
 bin/
 /nbproject/private/
 /build/

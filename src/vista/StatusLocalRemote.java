@@ -39,10 +39,10 @@ public class StatusLocalRemote extends javax.swing.JFrame {
         mensaje = new javax.swing.JLabel();
         fechaCommit = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        modelo = new DefaultListModel();
+        modelo = new DefaultListModel<String>();
         ListaCommits = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        modelo1= new DefaultListModel();
+        modelo1= new DefaultListModel<String>();
         ListaEditados = new javax.swing.JList<>();
 
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/vista/gato_Git250.png")).getImage());

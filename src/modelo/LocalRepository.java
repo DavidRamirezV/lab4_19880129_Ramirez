@@ -12,7 +12,7 @@ public class LocalRepository extends Repository{
 	
 	//METODOS
 	/** 
-	 * Metodo que se encarga de añadir los Commits del Local Repository a Remote Repository 
+	 * Metodo que se encarga de anadir los Commits del Local Repository a Remote Repository 
 	 * @param rep - Repository en el que se haran los cambios
 	 * @return Lista enlazada con los cambios realizados en Remote Repository
 	 */

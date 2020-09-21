@@ -15,7 +15,7 @@ public class Index extends Repository{
 	 * 
 	 * @param mensaje - String con un mensaje sobre los cambios que hara el usuario
 	 * @param rep - Repository que representa el repositorio actual
-	 * @return Lista enlazada de Commits, esta representa un nuevo Local Repository con los cambios añadidos
+	 * @return Lista enlazada de Commits, esta representa un nuevo Local Repository con los cambios anadidos
 	 */
 	public static LinkedList<Commit> gitCommit (String mensaje,Repository rep){
 		

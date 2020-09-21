@@ -28,7 +28,7 @@ public class StatusWorkspaceIndex extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane3 = new javax.swing.JScrollPane();
-        modelo = new DefaultListModel();
+        modelo = new DefaultListModel<String>();
         ListaArchivos = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();

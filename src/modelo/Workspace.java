@@ -12,7 +12,7 @@ import java.util.List;
 public class Workspace extends Repository{
 	
 	//METODOS
-	/**Metodo que se utliza para filtrar los archivos de Workspace que se desean agregar a Index, se pueden añadir n archivos o
+	/**Metodo que se utliza para filtrar los archivos de Workspace que se desean agregar a Index, se pueden anadir n archivos o
 	 * si el usuario lo desea puede agregar todos los archivos que esten en Workspace.
 	 * @param nombreArchivos - Lista de Strings con los nombres de Archivos que se desean agregar, si el valor en el indice 0
 	 * 							es "all" se agregaran todos los archivos ubicados en Workspace a Index
