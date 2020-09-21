@@ -93,7 +93,7 @@ public class Repository {
      * @return un Repository con las zonas de trabajo vacias.
      */
     public static Repository gitInit(String autor, String nombreRepositorio){
-	    Repository rep = new Repository() {};
+	Repository rep = new Repository() {};
         rep.setAutor(autor);	        
         rep.obtenerFecha();
         rep.setNombreRep(nombreRepositorio);

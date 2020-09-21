@@ -28,7 +28,8 @@ public class Controlador implements ActionListener{
     private CrearArchivo vista3;
     private Repository repositorio;
     private LinkedList<Archivo> Archivos;
-    private StatusWorkspace status1;
+    private StatusWorkspaceIndex status1;
+    private StatusLocalRemote status2;
 
 
     /**
@@ -59,7 +60,7 @@ public class Controlador implements ActionListener{
     public void iniciarMenu(){
         vista2 = new Menu();
         vista2.setTitle("Simulacion de Git por David Ramirez");
-        vista2.setLocation(vista.getLocation());
+        vista2.setLocationRelativeTo(null);
         vista2.setVisible(true);        
         vista.setSize(655, 500);
         vista2.jPanel1.setVisible(false);
@@ -72,6 +73,9 @@ public class Controlador implements ActionListener{
         vista2.BotonPull.addActionListener(this);
         vista2.BotonStatus.addActionListener(this);
         vista2.StatusWorkspace.addActionListener(this);
+        vista2.StatusIndex.addActionListener(this);
+        vista2.StatusLocal.addActionListener(this);
+        vista2.StatusRemote.addActionListener(this);
         vista.setVisible(false);
     } 
     public void crearArchivo(String nombre){
@@ -155,14 +159,16 @@ public class Controlador implements ActionListener{
             
         }
         if (e.getSource()==vista2.StatusWorkspace){    
-            status1 = new StatusWorkspace();
+            status1 = new StatusWorkspaceIndex();
             status1.setTitle("Simulacion de Git por David Ramirez");
             status1.setLocation(vista.getLocation());
+            status1.Donde.setText("Workspace:");
             if (Archivos.size()>0){
                 for (int i=0;Archivos.size()>i;i++){
                    status1.modelo.addElement(Archivos.get(i).getNombre());                   
                    status1.ListaArchivos.setSelectedIndex(0);
                 }
+                status1.Contenido.setText(Archivos.getFirst().getContenido());
             }
             status1.ListaArchivos.addListSelectionListener(new ListSelectionListener() {
             @Override
@@ -177,20 +183,139 @@ public class Controlador implements ActionListener{
                         }
                     }
                    
+                }            
+            });
+            status1.setVisible(true);            
+        }    
+       
+       if (e.getSource()==vista2.StatusIndex){ 
+            status1 = new StatusWorkspaceIndex();
+            status1.setTitle("Simulacion de Git por David Ramirez");
+            status1.setLocation(vista.getLocation());
+            status1.Donde.setText("Index:");
+            
+            try{
+                if (repositorio.getIndex().size()>0){
+                    for (int i=0;repositorio.getIndex().size()>i;i++){
+                       status1.modelo.addElement(repositorio.getIndex().get(i).getNombre());                   
+                       status1.ListaArchivos.setSelectedIndex(0);
+                    }
+                    status1.Contenido.setText(repositorio.getIndex().getFirst().getContenido());
                 }
+                status1.ListaArchivos.addListSelectionListener(new ListSelectionListener() {
+                @Override
+                    public void valueChanged(ListSelectionEvent e) {
+                        status1.Contenido.setVisible(false);
+                        String seleccionado = status1.ListaArchivos.getSelectedValue();
+                        for (int i=0;repositorio.getIndex().size()>i;i++){
+                            if (repositorio.getIndex().get(i).getNombre().equals(seleccionado)){
+                                status1.Contenido.setText(repositorio.getIndex().get(i).getContenido());
+                                status1.Contenido.setVisible(true);
+                                break;
+                            }
+                        }
 
-                private void add(JLabel Contenido) {
+                    }            
+                });            
+                status1.setVisible(true);  
+            }catch (Exception l){
+                status1.setVisible(true); 
+            }
+            
+        }   
+        
+       if (e.getSource()==vista2.StatusLocal){ 
+            status2 = new StatusLocalRemote();
+            status2.setTitle("Simulacion de Git por David Ramirez");
+            status2.setLocation(vista.getLocation());
+            status2.Donde.setText("Local Repository:");    
+            try{
+                
+                if (repositorio.getLocalRepository().size()>0){
+                    status2.CantidadCommits.setText(Integer.toString(repositorio.getLocalRepository().size()));
+                    for (int i=repositorio.getLocalRepository().size()-1;i>=0;i--){
+                       status2.modelo.addElement(repositorio.getLocalRepository().get(i).getFecha()+ "  |  " +repositorio.getLocalRepository().get(i).getComentario());                   
+                       status2.ListaCommits.setSelectedIndex(0);
+                    }
+                    status2.mensaje.setText(repositorio.getLocalRepository().getLast().getComentario());
+                    status2.fechaCommit.setText(repositorio.getLocalRepository().getLast().getFecha());
+                    for (int i=0; i<repositorio.getLocalRepository().getLast().getArchivosEditados().size();i++){
+                        status2.modelo1.addElement(repositorio.getLocalRepository().getLast().getArchivosEditados().get(i).getNombre());
+                    }
                     
                 }
-            });
-            status1.setVisible(true);
-            
-        }    
-     
-       
-            
-        
+                status2.ListaCommits.addListSelectionListener(new ListSelectionListener() {
+                @Override
+                    public void valueChanged(ListSelectionEvent e) {
+                        status2.mensaje.setVisible(false);
+                        status2.fechaCommit.setVisible(false);    
+                        status2.ListaEditados.setVisible(false);
+                        status2.modelo1.clear();
+                        int seleccionado = status2.ListaCommits.getSelectedIndex();
+                        status2.mensaje.setText(repositorio.getLocalRepository().get(repositorio.getLocalRepository().size()-seleccionado-1).getComentario());
+                        status2.fechaCommit.setText(repositorio.getLocalRepository().get(repositorio.getLocalRepository().size()-seleccionado-1).getFecha());
+                        for (int i=0; i<repositorio.getLocalRepository().get(repositorio.getLocalRepository().size()-seleccionado-1).getArchivosEditados().size();i++){
+                            status2.modelo1.addElement(repositorio.getLocalRepository().get(repositorio.getLocalRepository().size()-seleccionado-1).getArchivosEditados().get(i).getNombre());
+                        }
+                        status2.mensaje.setVisible(true);
+                        status2.fechaCommit.setVisible(true);
+                        status2.ListaEditados.setVisible(true);
+                    }            
+                });  
+                status2.setVisible(true);
+                }
+                catch (Exception l){
 
+                    status2.setVisible(true);
+                }
+        }
+       
+        if (e.getSource()==vista2.StatusRemote){ 
+            status2 = new StatusLocalRemote();
+            status2.setTitle("Simulacion de Git por David Ramirez");
+            status2.setLocation(vista.getLocation());
+            status2.Donde.setText("Remote Repository:");    
+            try{
+                
+                if (repositorio.getRemoteRepository().size()>0){
+                    status2.CantidadCommits.setText(Integer.toString(repositorio.getRemoteRepository().size()));
+                    for (int i=repositorio.getRemoteRepository().size()-1;i>=0;i--){
+                       status2.modelo.addElement(repositorio.getRemoteRepository().get(i).getFecha()+ "  |  " +repositorio.getRemoteRepository().get(i).getComentario());                   
+                       status2.ListaCommits.setSelectedIndex(0);
+                    }
+                    status2.mensaje.setText(repositorio.getRemoteRepository().getLast().getComentario());
+                    status2.fechaCommit.setText(repositorio.getRemoteRepository().getLast().getFecha());
+                    for (int i=0; i<repositorio.getRemoteRepository().getLast().getArchivosEditados().size();i++){
+                        status2.modelo1.addElement(repositorio.getRemoteRepository().getLast().getArchivosEditados().get(i).getNombre());
+                    }
+                    
+                }
+                status2.ListaCommits.addListSelectionListener(new ListSelectionListener() {
+                @Override
+                    public void valueChanged(ListSelectionEvent e) {
+                        status2.mensaje.setVisible(false);
+                        status2.fechaCommit.setVisible(false);    
+                        status2.ListaEditados.setVisible(false);
+                        status2.modelo1.clear();
+                        int seleccionado = status2.ListaCommits.getSelectedIndex();
+                        status2.mensaje.setText(repositorio.getRemoteRepository().get(repositorio.getRemoteRepository().size()-seleccionado-1).getComentario());
+                        status2.fechaCommit.setText(repositorio.getRemoteRepository().get(repositorio.getRemoteRepository().size()-seleccionado-1).getFecha());
+                        for (int i=0; i<repositorio.getRemoteRepository().get(repositorio.getRemoteRepository().size()-seleccionado-1).getArchivosEditados().size();i++){
+                            status2.modelo1.addElement(repositorio.getRemoteRepository().get(repositorio.getRemoteRepository().size()-seleccionado-1).getArchivosEditados().get(i).getNombre());
+                        }
+                        status2.mensaje.setVisible(true);
+                        status2.fechaCommit.setVisible(true);
+                        status2.ListaEditados.setVisible(true);
+                    }            
+                });  
+                status2.setVisible(true);
+                }
+                catch (Exception l){
+
+                    status2.setVisible(true);
+                }
+            
+            }  
     }
     
 }
